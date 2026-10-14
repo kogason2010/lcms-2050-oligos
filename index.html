@@ -18,13 +18,13 @@
 /* Layout: one fixed WebGL world (a 20-mer strand → its charges → HFIP adducts → a column of six lookalikes → an siRNA duplex coming apart → a HILIC column) under sticky, scroll-scrubbed chapters, then a normal-flow comparison. Single dark theme on purpose: it is an instrument space. */
 :root{
   --void:#06070c;
-  --ink:#ecedf3;
+  --ink:#e6e8ee;
   --dim:#8d92a6;
-  --strand:#5ff0cf;   /* nucleic acid backbone */
-  --charge:#ffb547;   /* negative charge / phosphate */
-  --hfip:#b490ff;     /* ion pair & adducts */
-  --pos:#ff7a9c;      /* positive mode / fail */
-  --hilic:#7fb8ff;    /* water layer */
+  --strand:#4cb8a4;   /* nucleic acid backbone */
+  --charge:#d99a4e;   /* negative charge / phosphate */
+  --hfip:#9a86d8;     /* ion pair & adducts */
+  --pos:#d27a8d;      /* positive mode / fail */
+  --hilic:#6f9fd4;    /* water layer */
   --hair:rgba(236,237,243,.14);
   --panel:rgba(10,12,20,.72);
   --display:"Instrument Serif",Georgia,"Times New Roman",serif;
@@ -58,7 +58,7 @@ body.locked{overflow:hidden}
 .ctl .demo{background:var(--strand);color:var(--void);border-color:var(--strand);font-weight:500;padding-inline:18px}
 .ctl .demo:hover{background:var(--ink);border-color:var(--ink)}
 .ctl .demo.on{background:transparent;color:var(--strand)}
-.demo-bar{position:fixed;left:0;top:0;height:2px;background:var(--strand);z-index:30;width:0;opacity:0;transition:opacity .3s;box-shadow:0 0 10px var(--strand)}
+.demo-bar{position:fixed;left:0;top:0;height:2px;background:var(--strand);z-index:30;width:0;opacity:0;transition:opacity .3s}
 .demo-bar.on{opacity:1}
 .rail{position:fixed;right:max(10px,1.4vw);top:50%;transform:translateY(-50%);height:28vh;width:1px;background:var(--hair);z-index:20}
 .rail i{position:absolute;left:0;top:0;width:1px;background:var(--ink);height:0}
@@ -118,9 +118,9 @@ p b{color:var(--ink);font-weight:500}
 .rungs{display:flex;gap:6px;flex-wrap:wrap}
 .rung{font-family:var(--mono);font-size:11px;padding:6px 9px;border-radius:8px;border:1px solid var(--hair);background:transparent;color:var(--charge);cursor:pointer;font-variant-numeric:tabular-nums;text-align:left;line-height:1.25}
 .rung span{display:block;color:var(--dim);font-size:10px}
-.rung[aria-pressed=true]{border-color:var(--charge);background:rgba(255,181,71,.12)}
+.rung[aria-pressed=true]{border-color:var(--charge);background:rgba(217,154,78,.12)}
 .rung.pos{color:var(--pos)}
-.rung.pos[aria-pressed=true]{border-color:var(--pos);background:rgba(255,122,156,.12)}
+.rung.pos[aria-pressed=true]{border-color:var(--pos);background:rgba(210,122,141,.12)}
 .calcline{font-family:var(--mono);font-size:12.5px;color:#c9ccd8;font-variant-numeric:tabular-nums;line-height:1.7}
 .calcline b{color:var(--ink);font-weight:500}
 .big{font-family:var(--display);font-size:clamp(2.6rem,5vw,3.6rem);line-height:1;color:var(--ink)}
@@ -140,7 +140,7 @@ td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabu
 .grid24{display:grid;grid-template-columns:auto repeat(3,1fr);gap:3px;font-family:var(--mono);font-size:10.5px}
 .grid24 .hd{color:var(--dim);padding:4px 6px;letter-spacing:.04em}
 .grid24 button{border:1px solid var(--hair);background:rgba(236,237,243,.03);color:var(--dim);border-radius:6px;padding:5px 6px;font:inherit;cursor:pointer;text-align:right;font-variant-numeric:tabular-nums;min-height:28px}
-.grid24 button.top{color:var(--void);border-color:transparent}
+.grid24 button.top{color:var(--ink);border-color:transparent}
 .grid24 button[aria-pressed=true]{outline:2px solid var(--ink);outline-offset:1px}
 .grid24 button.flag{border-style:dashed;border-color:var(--pos)}
 .detail{font-size:.9rem;color:#c9ccd8;min-height:2.8em}
@@ -528,7 +528,7 @@ const PROTON=1.00728;
 /* ---------- data (from the four notes) ---------- */
 // FLP of 01-00766, 5'→3' bases (modifications omitted for drawing)
 const FLP_SEQ='TCTTGGTTACATGAAATCCC';
-const BASECOL={A:0x6fb6ff,C:0xffd36b,G:0x7ff0a0,T:0xff8fa8,U:0xff8fa8};
+const BASECOL={A:0x5f88bf,C:0xc2a368,G:0x66a98a,T:0xb97a89,U:0xb97a89};
 // Published charge ladders
 const LADDERS=[
  {id:'n3',name:'n-3(5′) · HILIC',sign:-1,M:5970.15,src:'01-01238 Fig. 2',ions:[[3,1989.00],[4,1491.43],[5,1193.39],[6,994.00],[7,852.19]]},
@@ -605,7 +605,7 @@ rowsG.forEach(([h,t])=>{
  const lab=document.createElement('span');lab.className='hd';lab.textContent=`${h} / ${t} mM`;g.appendChild(lab);
  ACN.forEach(a=>{const b=document.createElement('button');const k=top10(h,t,a);
   const flag=h===200&&a===100;
-  if(k>=0){b.className='top';const v=TOP10[k][3];const s=(v-35)/(55-35);b.style.background=`color-mix(in srgb, var(--strand) ${Math.round(30+70*s)}%, #1b2230)`;b.textContent=v.toFixed(3)}
+  if(k>=0){b.className='top';const v=TOP10[k][3];const s=(v-35)/(55-35);b.style.background=`color-mix(in srgb, var(--strand) ${Math.round(18+42*s)}%, #141a24)`;b.textContent=v.toFixed(3)}
   else{b.textContent='·'}
   if(flag)b.classList.add('flag');
   b.setAttribute('aria-label',`${h} mM HFIP, ${t} mM TEA, ACN ${a}% of organic`);
@@ -682,11 +682,11 @@ function drawChrom(spec,prog,vis){
  if(tc<t1){ctx.strokeStyle='rgba(236,237,243,.45)';ctx.lineWidth=d;ctx.beginPath();ctx.moveTo(X(tc),16*d);ctx.lineTo(X(tc),base);ctx.stroke()}
 }
 const SPEC={
- 5:{range:[10.5,15.5],step:1,title:'UV 260 nm · Fig. 13, redrawn · min',traces:[{col:'rgba(95,240,207,.95)',off:0,scale:1/190,peaks:OPT.map(([n,len,t,hh],i)=>({t,h:hh,s:.045+(n==='FLP'?.012:0),label:n,dx:[0,-14,10,6,0,0][i],dy:[0,8,22,0,0,0][i]}))}]},
+ 5:{range:[10.5,15.5],step:1,title:'UV 260 nm · Fig. 13, redrawn · min',traces:[{col:'rgba(76,184,164,.95)',off:0,scale:1/190,peaks:OPT.map(([n,len,t,hh],i)=>({t,h:hh,s:.045+(n==='FLP'?.012:0),label:n,dx:[0,-14,10,6,0,0][i],dy:[0,8,22,0,0,0][i]}))}]},
  6:{range:[0,4.5],step:1,title:'UV 260 nm · Fig. 3, redrawn · min',traces:[
-   {name:'60 °C',col:'rgba(95,240,207,.95)',off:.5,scale:.45,peaks:SIR.t60.map((t,i)=>({t,h:SIR.h60[i],s:.025}))},
-   {name:'25 °C',col:'rgba(127,184,255,.95)',off:0,scale:.45,peaks:SIR.t25.map((t,i)=>({t,h:SIR.h25[i],s:.025}))}]},
- 7:{range:[7,10.5],step:1,title:'UV 260 nm · 01-01238 Fig. 1, redrawn · min',traces:[{col:'rgba(127,184,255,.95)',off:0,scale:.9,peaks:HIL.map(([n,len,t,hh])=>({t,h:hh,s:.13,label:`${n} ${t.toFixed(3)}`,short:t.toFixed(2)}))}]}};
+   {name:'60 °C',col:'rgba(76,184,164,.95)',off:.5,scale:.45,peaks:SIR.t60.map((t,i)=>({t,h:SIR.h60[i],s:.025}))},
+   {name:'25 °C',col:'rgba(111,159,212,.95)',off:0,scale:.45,peaks:SIR.t25.map((t,i)=>({t,h:SIR.h25[i],s:.025}))}]},
+ 7:{range:[7,10.5],step:1,title:'UV 260 nm · 01-01238 Fig. 1, redrawn · min',traces:[{col:'rgba(111,159,212,.95)',off:0,scale:.9,peaks:HIL.map(([n,len,t,hh])=>({t,h:hh,s:.13,label:`${n} ${t.toFixed(3)}`,short:t.toFixed(2)}))}]}};
 
 /* ---------- labels ---------- */
 const tags=[];
@@ -709,9 +709,9 @@ function fader(group){const mats=[];group.traverse(o=>{if(o.material){(Array.isA
  return o=>{group.visible=o>.005;mats.forEach(m=>m.opacity=m.userData.base*o)}}
 
 /* Single helical strand along x. Geometry is illustrative. */
-function makeStrand({seq,r=1.6,rise=.62,turn=.62,phase=0,col=0x5ff0cf,phR=.32,baseLen=.75,halo=true,dir=1}){
+function makeStrand({seq,r=1.6,rise=.62,turn=.62,phase=0,col=0x4cb8a4,phR=.32,baseLen=.75,halo=true,dir=1}){
  const n=seq.length,group=new THREE.Group(),pts=[];
- const phMat=new THREE.MeshStandardMaterial({color:0xffb547,emissive:0xffb547,emissiveIntensity:.35,roughness:.4,metalness:.1});
+ const phMat=new THREE.MeshStandardMaterial({color:0xc99a5e,emissive:0x8a5a22,emissiveIntensity:.15,roughness:.5,metalness:.1});
  const phG=new THREE.SphereGeometry(phR,16,12);
  const phos=[],halos=[];
  for(let i=0;i<n;i++){
@@ -719,20 +719,20 @@ function makeStrand({seq,r=1.6,rise=.62,turn=.62,phase=0,col=0x5ff0cf,phR=.32,ba
   const p=new THREE.Vector3(x,Math.cos(a)*r,Math.sin(a)*r);pts.push(p);
   const m=new THREE.Mesh(phG,phMat);m.position.copy(p);group.add(m);phos.push(m);
   const bc=BASECOL[seq[i]]||0xffffff;
-  const bm=new THREE.MeshStandardMaterial({color:bc,emissive:bc,emissiveIntensity:.25,roughness:.5});
+  const bm=new THREE.MeshStandardMaterial({color:bc,emissive:bc,emissiveIntensity:.08,roughness:.6});
   const inward=new THREE.Vector3(0,-Math.cos(a),-Math.sin(a));
   const cyl=new THREE.Mesh(new THREE.CylinderGeometry(phR*.38,phR*.38,r*baseLen,8),bm);
   cyl.position.copy(p).addScaledVector(inward,r*baseLen/2+phR*.6);
   cyl.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),inward);group.add(cyl);
-  if(halo){const s=new THREE.Sprite(new THREE.SpriteMaterial({map:haloTex,color:0xffb547,blending:THREE.AdditiveBlending,depthWrite:false,opacity:.0}));
+  if(halo){const s=new THREE.Sprite(new THREE.SpriteMaterial({map:haloTex,color:0xd99a4e,blending:THREE.AdditiveBlending,depthWrite:false,opacity:.0}));
    s.position.copy(p);s.scale.setScalar(phR*6);group.add(s);halos.push(s)}
  }
  const curve=new THREE.CatmullRomCurve3(pts);
- const tube=new THREE.Mesh(new THREE.TubeGeometry(curve,n*8,phR*.28,8,false),new THREE.MeshStandardMaterial({color:col,emissive:col,emissiveIntensity:.55,roughness:.35}));
+ const tube=new THREE.Mesh(new THREE.TubeGeometry(curve,n*8,phR*.28,8,false),new THREE.MeshStandardMaterial({color:col,emissive:col,emissiveIntensity:.25,roughness:.45}));
  group.add(tube);
  const fade=fader(group);
  halos.forEach(s=>s.material.userData.base=1);
- return{group,phos,halos,fade,pts,len:n,phMat,tubeMat:tube.material,setCharge(k,t){halos.forEach((s,i)=>{s.material.opacity=k*(.55+.45*Math.sin(t*3+i*.9))*s.material.userData.o;});phMat.emissiveIntensity=.35+k*.9}};
+ return{group,phos,halos,fade,pts,len:n,phMat,tubeMat:tube.material,setCharge(k,t){halos.forEach((s,i)=>{s.material.opacity=k*(.3+.2*Math.sin(t*3+i*.9))*s.material.userData.o;});phMat.emissiveIntensity=.15+k*.5}};
 }
 
 /* Column: translucent cylinder along x with rings */
@@ -750,12 +750,12 @@ if(GL){
  scene=new THREE.Scene();scene.fog=new THREE.FogExp2(0x06070c,.012);
  camera=new THREE.PerspectiveCamera(42,W/H,.1,500);camera.position.set(0,2,26);
  scene.add(new THREE.AmbientLight(0x4a5470,.85));
- const dl=new THREE.DirectionalLight(0xc8f5ff,1.1);dl.position.set(6,10,12);scene.add(dl);
- const rim=new THREE.DirectionalLight(0x8a5cff,.7);rim.position.set(-8,-4,-10);scene.add(rim);
+ const dl=new THREE.DirectionalLight(0xe2e8ee,1.0);dl.position.set(6,10,12);scene.add(dl);
+ const rim=new THREE.DirectionalLight(0x6a5aa8,.45);rim.position.set(-8,-4,-10);scene.add(rim);
  if(THREE.EffectComposer&&THREE.UnrealBloomPass&&THREE.RenderPass){
   composer=new THREE.EffectComposer(renderer);composer.setPixelRatio&&composer.setPixelRatio(pr);composer.setSize(W,H);
   composer.addPass(new THREE.RenderPass(scene,camera));
-  composer.addPass(new THREE.UnrealBloomPass(new THREE.Vector2(W,H),.55,.45,.42));
+  composer.addPass(new THREE.UnrealBloomPass(new THREE.Vector2(W,H),.3,.4,.6));
  }
  haloTex=haloTexture();
 
@@ -770,15 +770,15 @@ if(GL){
 
  /* HFIP adducts: small violet spheres clinging near phosphates */
  adducts={group:new THREE.Group(),items:[]};
- const adG=new THREE.SphereGeometry(.2,10,8),adM=new THREE.MeshStandardMaterial({color:0x9a6cff,emissive:0x7a4cff,emissiveIntensity:.45,roughness:.4});
+ const adG=new THREE.SphereGeometry(.2,10,8),adM=new THREE.MeshStandardMaterial({color:0x9a86d8,emissive:0x5a4a9a,emissiveIntensity:.3,roughness:.5});
  main.pts.forEach((p,i)=>{for(let k=0;k<2;k++){const m=new THREE.Mesh(adG,adM);adducts.group.add(m);
   adducts.items.push({m,p,ph:Math.random()*6.28,k,thr:(i*2+k)/(main.len*2),drift:new THREE.Vector3((Math.random()-.5)*6,2+Math.random()*5,(Math.random()-.5)*6)})}});
  main.group.add(adducts.group);adducts.fade=fader(adducts.group);
 
  /* RP-IP column of six lookalikes */
  column={group:new THREE.Group(),len:40,strands:[]};
- column.group.add(makeColumn(column.len,4.2,0x5ff0cf));
- const cols6=[0x6fb6ff,0xff8fa8,0xffd36b,0xb490ff,0x5ff0cf,0xff7a9c];
+ column.group.add(makeColumn(column.len,4.2,0x4cb8a4));
+ const cols6=[0x5f88bf,0xb97a89,0xc2a368,0x9a86d8,0x4cb8a4,0xd27a8d];
  OPT.forEach(([n,len,t],i)=>{const s=makeStrand({seq:FLP_SEQ.padEnd(21,'C').slice(0,len),r:.6,rise:.24,turn:.7,phR:.15,col:cols6[i],halo:false,phase:i});
   s.group.position.set(0,(i-2.5)*1.45,0);column.group.add(s.group);const mk=new THREE.Object3D();mk.position.x=(len-1)/2*.24+.6;s.group.add(mk);column.strands.push({s,t,name:n,mk,lab:tag(`${n} <i>${len}-mer</i>`,'side')})});
  scene.add(column.group);column.fade=fader(column.group);
@@ -786,19 +786,19 @@ if(GL){
  /* siRNA duplex: two 21-nt strands */
  duplex={group:new THREE.Group()};
  const SENSE='GUAACCAAGAGUAUUCCAUTT',ANTI='AUGGAAUACUCUUGGUUACTT';
- duplex.a=makeStrand({seq:SENSE,r:1.7,rise:.55,turn:.55,phase:0,col:0x5ff0cf,halo:false});
- duplex.b=makeStrand({seq:ANTI.split('').reverse().join(''),r:1.7,rise:.55,turn:.55,phase:Math.PI*.85,col:0x7fb8ff,halo:false});
+ duplex.a=makeStrand({seq:SENSE,r:1.7,rise:.55,turn:.55,phase:0,col:0x4cb8a4,halo:false});
+ duplex.b=makeStrand({seq:ANTI.split('').reverse().join(''),r:1.7,rise:.55,turn:.55,phase:Math.PI*.85,col:0x6f9fd4,halo:false});
  duplex.group.add(duplex.a.group,duplex.b.group);scene.add(duplex.group);duplex.fade=fader(duplex.group);
  duplex.la=tag('sense <i>21 nt</i>');duplex.lb=tag('antisense <i>21 nt</i>');
 
  /* HILIC column with a water layer */
  hilic={group:new THREE.Group(),len:40,strands:[]};
- hilic.group.add(makeColumn(hilic.len,4.2,0x7fb8ff));
+ hilic.group.add(makeColumn(hilic.len,4.2,0x6f9fd4));
  const WN=coarse?900:1800,wg=new THREE.BufferGeometry(),wp=new Float32Array(WN*3);
  for(let i=0;i<WN;i++){const a=Math.random()*6.283,rr=3.55+Math.random()*.55;wp[i*3]=(Math.random()-.5)*hilic.len;wp[i*3+1]=Math.cos(a)*rr;wp[i*3+2]=Math.sin(a)*rr}
  wg.setAttribute('position',new THREE.BufferAttribute(wp,3));
- hilic.water=new THREE.Points(wg,new THREE.PointsMaterial({color:0x7fb8ff,size:.13,opacity:.7,depthWrite:false,blending:THREE.AdditiveBlending}));hilic.group.add(hilic.water);
- HIL.forEach(([n,len,t],i)=>{const s=makeStrand({seq:FLP_SEQ.slice(0,len),r:.6,rise:.24,turn:.7,phR:.15,col:[0x6fb6ff,0xff8fa8,0x5ff0cf][i],halo:false,phase:i});
+ hilic.water=new THREE.Points(wg,new THREE.PointsMaterial({color:0x6f9fd4,size:.12,opacity:.4,depthWrite:false,blending:THREE.AdditiveBlending}));hilic.group.add(hilic.water);
+ HIL.forEach(([n,len,t],i)=>{const s=makeStrand({seq:FLP_SEQ.slice(0,len),r:.6,rise:.24,turn:.7,phR:.15,col:[0x5f88bf,0xb97a89,0x4cb8a4][i],halo:false,phase:i});
   s.group.position.set(0,(i-1)*1.6,0);hilic.group.add(s.group);const mk=new THREE.Object3D();mk.position.x=(len-1)/2*.24+.6;s.group.add(mk);hilic.strands.push({s,t,name:n,mk,lab:tag(`${n} <i>${len}-mer</i>`,'side')})});
  scene.add(hilic.group);hilic.fade=fader(hilic.group);
 }
