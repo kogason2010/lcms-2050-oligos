@@ -21,7 +21,7 @@
   --ink:#e6e8ee;
   --dim:#8d92a6;
   --strand:#4cb8a4;   /* nucleic acid backbone */
-  --charge:#d99a4e;   /* negative charge / phosphate */
+  --charge:#cfa24a;   /* negative charge / phosphate */
   --hfip:#9a86d8;     /* ion pair & adducts */
   --pos:#d27a8d;      /* positive mode / fail */
   --hilic:#6f9fd4;    /* water layer */
@@ -118,7 +118,7 @@ p b{color:var(--ink);font-weight:500}
 .rungs{display:flex;gap:6px;flex-wrap:wrap}
 .rung{font-family:var(--mono);font-size:11px;padding:6px 9px;border-radius:8px;border:1px solid var(--hair);background:transparent;color:var(--charge);cursor:pointer;font-variant-numeric:tabular-nums;text-align:left;line-height:1.25}
 .rung span{display:block;color:var(--dim);font-size:10px}
-.rung[aria-pressed=true]{border-color:var(--charge);background:rgba(217,154,78,.12)}
+.rung[aria-pressed=true]{border-color:var(--charge);background:rgba(207,162,74,.12)}
 .rung.pos{color:var(--pos)}
 .rung.pos[aria-pressed=true]{border-color:var(--pos);background:rgba(210,122,141,.12)}
 .calcline{font-family:var(--mono);font-size:12.5px;color:#c9ccd8;font-variant-numeric:tabular-nums;line-height:1.7}
@@ -711,7 +711,7 @@ function fader(group){const mats=[];group.traverse(o=>{if(o.material){(Array.isA
 /* Single helical strand along x. Geometry is illustrative. */
 function makeStrand({seq,r=1.6,rise=.62,turn=.62,phase=0,col=0x4cb8a4,phR=.32,baseLen=.75,halo=true,dir=1}){
  const n=seq.length,group=new THREE.Group(),pts=[];
- const phMat=new THREE.MeshStandardMaterial({color:0xc99a5e,emissive:0x8a5a22,emissiveIntensity:.15,roughness:.5,metalness:.1});
+ const phMat=new THREE.MeshStandardMaterial({color:0xc9962f,emissive:0x6b4510,emissiveIntensity:.2,roughness:.32,metalness:.45});
  const phG=new THREE.SphereGeometry(phR,16,12);
  const phos=[],halos=[];
  for(let i=0;i<n;i++){
@@ -724,7 +724,7 @@ function makeStrand({seq,r=1.6,rise=.62,turn=.62,phase=0,col=0x4cb8a4,phR=.32,ba
   const cyl=new THREE.Mesh(new THREE.CylinderGeometry(phR*.38,phR*.38,r*baseLen,8),bm);
   cyl.position.copy(p).addScaledVector(inward,r*baseLen/2+phR*.6);
   cyl.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),inward);group.add(cyl);
-  if(halo){const s=new THREE.Sprite(new THREE.SpriteMaterial({map:haloTex,color:0xd99a4e,blending:THREE.AdditiveBlending,depthWrite:false,opacity:.0}));
+  if(halo){const s=new THREE.Sprite(new THREE.SpriteMaterial({map:haloTex,color:0xb07a30,blending:THREE.AdditiveBlending,depthWrite:false,opacity:.0}));
    s.position.copy(p);s.scale.setScalar(phR*6);group.add(s);halos.push(s)}
  }
  const curve=new THREE.CatmullRomCurve3(pts);
@@ -732,7 +732,7 @@ function makeStrand({seq,r=1.6,rise=.62,turn=.62,phase=0,col=0x4cb8a4,phR=.32,ba
  group.add(tube);
  const fade=fader(group);
  halos.forEach(s=>s.material.userData.base=1);
- return{group,phos,halos,fade,pts,len:n,phMat,tubeMat:tube.material,setCharge(k,t){halos.forEach((s,i)=>{s.material.opacity=k*(.3+.2*Math.sin(t*3+i*.9))*s.material.userData.o;});phMat.emissiveIntensity=.15+k*.5}};
+ return{group,phos,halos,fade,pts,len:n,phMat,tubeMat:tube.material,setCharge(k,t){halos.forEach((s,i)=>{s.material.opacity=k*(.3+.2*Math.sin(t*3+i*.9))*s.material.userData.o;});phMat.emissiveIntensity=.12+k*.35}};
 }
 
 /* Column: translucent cylinder along x with rings */
