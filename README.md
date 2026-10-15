@@ -13,7 +13,7 @@ oligonucleotides with the LCMS-2050 single quadrupole mass spectrometer:
 > Independent, unofficial project. Not affiliated with, sponsored or endorsed by Shimadzu Corporation.
 
 - **Single file:** `index.html` (three.js r128 and its bloom passes load from cdnjs and jsDelivr).
-- **Demo mode:** press *Play demo* or the D key for a guided scroll of about two minutes.
+- **Demo mode:** press *Play demo* or the D key. Each text block stays on screen long enough to read at about 190 words per minute (about 7 minutes in all); the speed button cycles 1×, 1.5×, 2× and 0.75×.
 - **Interactive:** a charge-state ladder built from published peaks, a Qarray voltage sweep, and the 24-run screening grid.
 - Companion sites: https://kogason2010.github.io/nexera-uc-epsa/ · https://kogason2010.github.io/nexera-ic/ · https://kogason2010.github.io/nexera-ic-applications/
 

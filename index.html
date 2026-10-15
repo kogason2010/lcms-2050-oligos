@@ -43,7 +43,7 @@ body.locked{overflow:hidden}
 .vignette{position:fixed;inset:0;pointer-events:none;z-index:1;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.6) 100%)}
 
 /* HUD */
-.hud{position:fixed;z-index:20;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);pointer-events:none}
+.hud{position:fixed;z-index:20;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);pointer-events:none}
 .hud-tl{top:calc(env(safe-area-inset-top,0px) + 22px);left:max(16px,3vw);display:flex;gap:14px;align-items:baseline}
 .hud-tl b{color:var(--ink);font-weight:500;letter-spacing:.22em}
 .hud-tr{top:calc(env(safe-area-inset-top,0px) + 22px);right:max(16px,3vw);display:flex;gap:10px;align-items:baseline}
@@ -58,6 +58,8 @@ body.locked{overflow:hidden}
 .ctl .demo{background:var(--strand);color:var(--void);border-color:var(--strand);font-weight:500;padding-inline:18px}
 .ctl .demo:hover{background:var(--ink);border-color:var(--ink)}
 .ctl .demo.on{background:transparent;color:var(--strand)}
+.ctl .gmin{opacity:.7;font-weight:400}
+#bSpeed{min-width:3.2em;justify-content:center;font-variant-numeric:tabular-nums}
 .demo-bar{position:fixed;left:0;top:0;height:2px;background:var(--strand);z-index:30;width:0;opacity:0;transition:opacity .3s}
 .demo-bar.on{opacity:1}
 .rail{position:fixed;right:max(10px,1.4vw);top:50%;transform:translateY(-50%);height:28vh;width:1px;background:var(--hair);z-index:20}
@@ -84,7 +86,7 @@ body.locked{overflow:hidden}
 .beat.top{align-self:start}
 .beat.bottom{align-self:end}
 .beat.right{justify-self:end}
-.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);display:flex;gap:12px;align-items:center}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);display:flex;gap:12px;align-items:center}
 .eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
 h1,h2{font-family:var(--display);font-weight:400;margin:0;line-height:.95;letter-spacing:-.01em;text-wrap:balance}
 h1{font-size:clamp(3.4rem,9.5vw,8.6rem)}
@@ -96,7 +98,7 @@ h2 .w{color:var(--hilic);font-style:italic}
 p{margin:0;max-width:46ch;color:#c9ccd8;font-size:1.02rem}
 p b{color:var(--ink);font-weight:500}
 .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
-.small{font-size:.86rem;color:var(--dim)}
+.small{font-size:.9rem;color:#a3a8ba}
 .sub{font-family:var(--display);font-size:clamp(1.4rem,2.6vw,2.1rem);line-height:1.2;max-width:30ch;color:var(--ink)}
 .cue{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);display:flex;align-items:center;gap:12px}
 .cue i{display:block;width:1px;height:46px;background:linear-gradient(var(--ink),transparent);animation:cue 2.2s ease-in-out infinite;transform-origin:top}
@@ -110,14 +112,14 @@ p b{color:var(--ink);font-weight:500}
 .notes .n{font-family:var(--display);font-size:1.8rem;line-height:1;color:var(--dim);grid-row:span 2}
 .notes .t{font-weight:500;color:var(--ink)}
 .notes .q{color:#c9ccd8;font-size:.95rem}
-.notes .id{font-family:var(--mono);font-size:10.5px;color:var(--dim);letter-spacing:.06em}
+.notes .id{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.06em}
 .seg{display:flex;gap:6px;flex-wrap:wrap}
 .chip{background:transparent;border:1px solid var(--hair);color:var(--ink);font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:6px 11px;border-radius:999px;cursor:pointer}
 .chip[aria-pressed=true]{background:var(--ink);color:var(--void);border-color:var(--ink)}
 .chip:hover{border-color:var(--ink)}
 .rungs{display:flex;gap:6px;flex-wrap:wrap}
 .rung{font-family:var(--mono);font-size:11px;padding:6px 9px;border-radius:8px;border:1px solid var(--hair);background:transparent;color:var(--charge);cursor:pointer;font-variant-numeric:tabular-nums;text-align:left;line-height:1.25}
-.rung span{display:block;color:var(--dim);font-size:10px}
+.rung span{display:block;color:var(--dim);font-size:10.5px}
 .rung[aria-pressed=true]{border-color:var(--charge);background:rgba(207,162,74,.12)}
 .rung.pos{color:var(--pos)}
 .rung.pos[aria-pressed=true]{border-color:var(--pos);background:rgba(210,122,141,.12)}
@@ -125,9 +127,9 @@ p b{color:var(--ink);font-weight:500}
 .calcline b{color:var(--ink);font-weight:500}
 .big{font-family:var(--display);font-size:clamp(2.6rem,5vw,3.6rem);line-height:1;color:var(--ink)}
 .big small{font-family:var(--mono);font-size:12px;color:var(--dim);margin-left:6px}
-table{border-collapse:collapse;width:100%;font-size:.86rem}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
 th,td{padding:6px 8px;text-align:left;border-bottom:1px solid var(--hair);vertical-align:top}
-th{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);font-weight:400}
+th{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);font-weight:400}
 td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
 .tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .bars{display:grid;gap:8px}
@@ -137,18 +139,19 @@ td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabu
 .bar .v{text-align:right;color:var(--ink);font-variant-numeric:tabular-nums}
 .qv{display:flex;align-items:baseline;gap:10px}
 .qv .big{color:var(--hfip)}
-.grid24{display:grid;grid-template-columns:auto repeat(3,1fr);gap:3px;font-family:var(--mono);font-size:10.5px}
+.grid24{display:grid;grid-template-columns:auto repeat(3,1fr);gap:3px;font-family:var(--mono);font-size:11.5px}
 .grid24 .hd{color:var(--dim);padding:4px 6px;letter-spacing:.04em}
 .grid24 button{border:1px solid var(--hair);background:rgba(236,237,243,.03);color:var(--dim);border-radius:6px;padding:5px 6px;font:inherit;cursor:pointer;text-align:right;font-variant-numeric:tabular-nums;min-height:28px}
 .grid24 button.top{color:var(--ink);border-color:transparent}
 .grid24 button[aria-pressed=true]{outline:2px solid var(--ink);outline-offset:1px}
 .grid24 button.flag{border-style:dashed;border-color:var(--pos)}
-.detail{font-size:.9rem;color:#c9ccd8;min-height:2.8em}
+.detail{font-size:.95rem;color:#c9ccd8;min-height:2.8em}
 .detail b{color:var(--ink);font-weight:500}
 .eqn{font-family:var(--mono);font-size:12.5px;color:var(--ink);border-left:2px solid var(--strand);padding:4px 0 4px 12px}
-.key{display:flex;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:10.5px;color:var(--dim);letter-spacing:.05em;text-transform:uppercase}
+.key{display:flex;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.05em;text-transform:uppercase}
 .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:0}
 .tag-ok{color:var(--strand)}
+.nw{white-space:nowrap}
 .tag-bad{color:var(--pos)}
 
 /* chromatogram */
@@ -156,9 +159,9 @@ td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabu
 
 /* 3D labels */
 #tags{position:fixed;inset:0;z-index:4;pointer-events:none}
-.tag{position:absolute;left:0;top:0;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink);white-space:nowrap;transform:translate(-50%,-140%);opacity:0;text-shadow:0 0 6px #000}
+.tag{position:absolute;left:0;top:0;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--ink);white-space:nowrap;transform:translate(-50%,-140%);opacity:0;text-shadow:0 0 6px #000}
 .tag i{font-style:normal;color:var(--dim)}
-.tag.side{font-size:10px}
+.tag.side{font-size:11px}
 
 /* normal flow end section */
 .end{position:relative;z-index:8;background:linear-gradient(180deg,transparent,var(--void) 18vh);padding:18vh max(20px,6vw) 130px}
@@ -185,7 +188,14 @@ footer a,.end a{color:var(--strand)}
   .stick.scrim::before{background:linear-gradient(180deg,rgba(6,7,12,.55) 0%,rgba(6,7,12,.1) 30%,rgba(6,7,12,.55) 55%,rgba(6,7,12,.9) 100%)}
   .beat{align-self:end!important;justify-self:stretch!important;max-width:none}
   .beat.top{align-self:start!important}
-  .beat .panel{max-height:56svh;overflow:auto}
+  .beat .panel{max-height:calc(100svh - 300px);overflow:auto;padding:12px;gap:10px}
+  .notes li{padding:8px 0}
+  th,td{padding:5px 6px}
+  .beat .eyebrow{background:rgba(6,7,12,.75);padding:4px 8px;border-radius:6px;justify-self:start;max-width:100%}
+  .gate-in{max-width:100%}
+  .gate-btns{flex-wrap:wrap;justify-content:center}
+  .gate .ladder{font-size:11px;line-height:1.7}
+  .gate .eyebrow{font-size:10.5px;letter-spacing:.14em}
   #chrom{height:104px;bottom:calc(env(safe-area-inset-bottom,0px) + 112px)}
   .hide-m{display:none!important}
   .beat.top:not(:has(.panel)){background:rgba(6,7,12,.62);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:14px;border-radius:14px;margin-inline:-6px}
@@ -221,7 +231,7 @@ footer a,.end a{color:var(--strand)}
     <div class="ladder" id="gateL" aria-live="polite">&nbsp;</div>
     <div class="gate-bar"><i id="gateBar"></i></div>
     <div class="gate-btns ctl" id="gateBtns">
-      <button class="demo" id="enterD"><svg viewBox="0 0 12 12"><path d="M2 1v10l9-5z"/></svg>Play demo</button>
+      <button class="demo" id="enterD"><svg viewBox="0 0 12 12"><path d="M2 1v10l9-5z"/></svg>Play demo <span class="gmin" id="gateMin"></span></button>
       <button id="enterQ">Explore at my pace</button>
     </div>
   </div>
@@ -233,6 +243,7 @@ footer a,.end a{color:var(--strand)}
 <div class="hud hud-br">
   <div class="ctl">
     <button id="bTop" aria-label="Back to start"><svg viewBox="0 0 12 12"><path d="M6 1 1 7h3v4h4V7h3z"/></svg><span class="lbl">Start</span></button>
+    <button id="bSpeed" aria-label="Demo speed" title="Demo speed" hidden>1×</button>
     <button class="demo" id="bDemo" aria-pressed="false"><svg id="bDemoIco" viewBox="0 0 12 12"><path d="M2 1v10l9-5z"/></svg><span id="bDemoL">Play demo</span></button>
     <button id="bEnd" aria-label="Jump to comparison"><svg viewBox="0 0 12 12"><path d="M6 11 1 5h3V1h4v4h3z"/></svg><span class="lbl">Compare</span></button>
   </div>
@@ -243,7 +254,7 @@ footer a,.end a{color:var(--strand)}
 <!-- 00 -->
 <section class="ch" id="c0" style="height:170vh" data-name="Strand" data-read="<i>LCMS-2050</i> · single quadrupole · DUIS ion source">
   <div class="stick scrim">
-    <div class="beat" data-a="0" data-b=".8">
+    <div class="beat" data-a="0" data-b="1">
       <span class="eyebrow">Four Shimadzu application notes</span>
       <h1>Strand by <em>strand</em></h1>
       <p class="sub">How a single quadrupole mass spectrometer confirms what a synthetic oligonucleotide is: by its charges, its mass, and where it elutes.</p>
@@ -375,11 +386,11 @@ footer a,.end a{color:var(--strand)}
         <div class="tw"><table>
           <thead><tr><th>Pair</th><th class="num">Rs</th><th>Criterion</th></tr></thead>
           <tbody>
-            <tr><td>n-3 / n-1(5′)</td><td class="num">7.4</td><td></td></tr>
-            <tr><td>n-1(5′) / n-1(3′)</td><td class="num">0.44</td><td>maximized</td></tr>
-            <tr><td>n-1(3′) / PO</td><td class="num">0.81</td><td class="tag-ok">&gt; 0.7 ✓</td></tr>
+            <tr><td class="nw">n-3 / n-1(5′)</td><td class="num">7.4</td><td></td></tr>
+            <tr><td class="nw">n-1(5′) / n-1(3′)</td><td class="num">0.44</td><td>maximized</td></tr>
+            <tr><td class="nw">n-1(3′) / PO</td><td class="num">0.81</td><td class="tag-ok">&gt; 0.7 ✓</td></tr>
             <tr><td>PO / FLP</td><td class="num">1.4</td><td></td></tr>
-            <tr><td>FLP / n+1</td><td class="num">3.5</td><td>n+1 &lt; 16 min ✓</td></tr>
+            <tr><td>FLP / n+1</td><td class="num">3.5</td><td class="nw">n+1 &lt; 16 min ✓</td></tr>
           </tbody></table></div>
       </div>
     </div>
@@ -389,12 +400,12 @@ footer a,.end a{color:var(--strand)}
         <div class="tw"><table>
           <thead><tr><th>Peak</th><th class="num">Length</th><th class="num">Estimated MW</th><th class="num">Theoretical</th></tr></thead>
           <tbody>
-            <tr><td>n-3</td><td class="num">17</td><td class="num">5985</td><td class="num">5986</td></tr>
-            <tr><td>n-1(5′)</td><td class="num">19</td><td class="num">6772</td><td class="num">6774</td></tr>
-            <tr><td>n-1(3′)</td><td class="num">19</td><td class="num">6773</td><td class="num">6775</td></tr>
+            <tr><td class="nw">n-3</td><td class="num">17</td><td class="num">5985</td><td class="num">5986</td></tr>
+            <tr><td class="nw">n-1(5′)</td><td class="num">19</td><td class="num">6772</td><td class="num">6774</td></tr>
+            <tr><td class="nw">n-1(3′)</td><td class="num">19</td><td class="num">6773</td><td class="num">6775</td></tr>
             <tr><td>PO</td><td class="num">20</td><td class="num">7151</td><td class="num">7152</td></tr>
             <tr><td>FLP</td><td class="num">20</td><td class="num">7167</td><td class="num">7168</td></tr>
-            <tr><td>n+1</td><td class="num">21</td><td class="num">7561</td><td class="num">7563</td></tr>
+            <tr><td class="nw">n+1</td><td class="num">21</td><td class="num">7561</td><td class="num">7563</td></tr>
           </tbody></table></div>
         <p class="small">Retention times shift whenever a setting changes, and the UV spectra are too similar to track peaks by, so LabSolutions MD tracked them through all runs by molecular weight from the LCMS-2050. The two n-1 strands differ by only 1 Da; the note attributes their poor separation to their very similar structure.</p>
       </div>
@@ -446,9 +457,9 @@ footer a,.end a{color:var(--strand)}
           <thead><tr><th>Check</th><th>Result</th></tr></thead>
           <tbody>
             <tr><td>FLP 1–20 µmol/L</td><td>r² ≥ 0.999</td></tr>
-            <tr><td>n-1(5′), n-3(5′) at 2–50% of a 10 µmol/L FLP</td><td>all detected and identified</td></tr>
-            <tr><td>n-3(5′) linearity</td><td class="mono">y = 15705x + 2102.7, r² 0.9995</td></tr>
-            <tr><td>n-1(5′) linearity</td><td class="mono">y = 15484x + 53054, r² 0.9996</td></tr>
+            <tr><td><span class="nw">n-1(5′)</span>, <span class="nw">n-3(5′)</span> at 2–50% of a 10 µmol/L FLP</td><td>all detected and identified</td></tr>
+            <tr><td class="nw">n-3(5′) linearity</td><td class="mono">y = 15705x + 2102.7, r² 0.9995</td></tr>
+            <tr><td class="nw">n-1(5′) linearity</td><td class="mono">y = 15484x + 53054, r² 0.9996</td></tr>
             <tr><td>Mass errors (FLP and variants)</td><td>within 0.3 Da</td></tr>
           </tbody></table></div>
       </div>
@@ -528,7 +539,7 @@ const PROTON=1.00728;
 /* ---------- data (from the four notes) ---------- */
 // FLP of 01-00766, 5'→3' bases (modifications omitted for drawing)
 const FLP_SEQ='TCTTGGTTACATGAAATCCC';
-const BASECOL={A:0x5f88bf,C:0xc2a368,G:0x66a98a,T:0xb97a89,U:0xb97a89};
+const BASECOL={A:0x6a94cc,C:0xcfb27a,G:0x72b596,T:0xc48896,U:0xc48896};
 // Published charge ladders
 const LADDERS=[
  {id:'n3',name:'n-3(5′) · HILIC',sign:-1,M:5970.15,src:'01-01238 Fig. 2',ions:[[3,1989.00],[4,1491.43],[5,1193.39],[6,994.00],[7,852.19]]},
@@ -633,21 +644,40 @@ setTimeout(()=>$('gateBtns').classList.add('show'),2600);
 function enter(demo){if(gateDone)return;gateDone=true;$('gate').classList.add('gone');document.body.classList.remove('locked');measure();if(demo)setTimeout(startDemo,500);else $('bDemo').focus({preventScroll:true})}
 $('enterD').onclick=()=>enter(true);$('enterQ').onclick=()=>enter(false);
 
-/* ---------- demo ---------- */
-const DUR=[6,12,16,22,18,22,16,20];
-let demo=false,demoT=0;
-const demoTotal=()=>DUR.reduce((a,b)=>a+b,0);
-const maxY=()=>document.documentElement.scrollHeight-innerHeight;
-const sEnd=i=>i<N-1?tops[i+1]:tops[N-1]+hs[N-1]-vh;
-function yAtDemo(t){let acc=0;for(let i=0;i<N;i++){if(t<=acc+DUR[i]||i===N-1){return lerp(tops[i],sEnd(i),clamp((t-acc)/DUR[i]))}acc+=DUR[i]}return sEnd(N-1)}
-function demoAtY(y){let acc=0;for(let i=0;i<N;i++){if(y<sEnd(i)||i===N-1)return acc+clamp((y-tops[i])/Math.max(1,sEnd(i)-tops[i]))*DUR[i];acc+=DUR[i]}return demoTotal()}
+/* ---------- guided demo, paced by reading time ----------
+   Each text block stays fully on screen long enough to read at ~190 words per minute
+   (plus time per table row and for widgets). Animations get minimum durations, fades are
+   short, and the change from one chapter to the next takes TRANS seconds. */
+const WPS=3.2,FADE=.8,BASE=6,TRANS=1.8;
+const ANIM={3:[[.3,.7,16]],4:[[.38,1,8]],5:[[.36,.68,12]],6:[[.25,.6,6],[.42,.8,8]],7:[[.12,.5,10]]};
+const SPEEDS=[1,1.5,2,.75];let speedI=0;
+function readSec(el){const c=el.cloneNode(true);c.querySelectorAll('table,.grid24,.rungs,.seg,.cue').forEach(x=>x.remove());
+ const w=(c.textContent.match(/\S+/g)||[]).length;return 1.5+w/WPS+el.querySelectorAll('tbody tr').length*.45+(el.querySelector('.grid24,.rungs,.bars')?3:0)}
+let TL=[[0,0]],demo=false,demoT=0;
+function buildTimeline(){measure();TL=[];let t=0;const E=1e-6;
+ for(let i=0;i<N;i++){const span=Math.max(1,hs[i]-vh);
+  const bs=beats[i].map(b=>({a:b.a,b:b.b,v0:b.a===0?0:b.a+.05,v1:b.b>=.95?1:b.b-.05,read:readSec(b.el)}));
+  const P=new Set([0,1]);bs.forEach(b=>[b.a,b.v0,b.v1,b.b].forEach(x=>P.add(clamp(x))));(ANIM[i]||[]).forEach(([a,b])=>{P.add(a);P.add(b)});
+  const pts=[...P].sort((x,y)=>x-y);TL.push([t,tops[i]]);
+  for(let k=0;k<pts.length-1;k++){const x0=pts[k],x1=pts[k+1],L=x1-x0;if(L<E)continue;let d=L*BASE;
+   bs.forEach(b=>{if(x0>=b.v0-E&&x1<=b.v1+E)d=Math.max(d,b.read*L/(b.v1-b.v0));
+    if((x0>=b.a-E&&x1<=b.v0+E&&b.a>0)||(b.b<.95&&x0>=b.v1-E&&x1<=b.b+E))d=Math.max(d,FADE*L/.05)});
+   (ANIM[i]||[]).forEach(([a,b,sec])=>{if(x0>=a-E&&x1<=b+E)d=Math.max(d,sec*L/(b-a))});
+   t+=d;TL.push([t,tops[i]+x1*span])}
+  if(i<N-1){t+=TRANS;TL.push([t,tops[i+1]])}}
+ const m=Math.round(demoTotal()/60);$('gateMin').textContent=`about ${m} min`;}
+const demoTotal=()=>TL[TL.length-1][0];
+function yAtDemo(t){if(t<=0)return TL[0][1];for(let k=1;k<TL.length;k++){if(t<=TL[k][0]){const[t0,y0]=TL[k-1],[t1,y1]=TL[k];return lerp(y0,y1,t1>t0?(t-t0)/(t1-t0):1)}}return TL[TL.length-1][1]}
+function demoAtY(y){for(let k=1;k<TL.length;k++){if(y<=TL[k][1]+.5){const[t0,y0]=TL[k-1],[t1,y1]=TL[k];return y1>y0?lerp(t0,t1,clamp((y-y0)/(y1-y0))):t0}}return demoTotal()}
 function setDemoUI(){$('bDemo').classList.toggle('on',demo);$('bDemo').setAttribute('aria-pressed',demo);$('demoBar').classList.toggle('on',demo);
  $('bDemoL').textContent=demo?'Pause demo':(demoT>0&&demoT<demoTotal()-.5?'Resume demo':'Play demo');
- $('bDemoIco').innerHTML=demo?'<path d="M2 1h3v10H2zM7 1h3v10H7z"/>':'<path d="M2 1v10l9-5z"/>'}
-function startDemo(){measure();if(scrollY>=sEnd(N-1)-4){scrollTo(0,0);demoT=0}else demoT=demoAtY(scrollY);demo=true;setDemoUI()}
+ $('bDemoIco').innerHTML=demo?'<path d="M2 1h3v10H2zM7 1h3v10H7z"/>':'<path d="M2 1v10l9-5z"/>';
+ $('bSpeed').textContent=SPEEDS[speedI]+'×';$('bSpeed').hidden=!demo&&!(demoT>0)}
+function startDemo(){buildTimeline();const endY=TL[TL.length-1][1];if(scrollY>=endY-4){scrollTo(0,0);demoT=0}else demoT=demoAtY(scrollY);demo=true;setDemoUI()}
 function pauseDemo(){if(!demo)return;demo=false;setDemoUI()}
-function tickDemo(dt){if(!demo)return;demoT+=dt;scrollTo(0,yAtDemo(demoT));$('demoBar').style.width=(clamp(demoT/demoTotal())*100)+'%';
+function tickDemo(dt){if(!demo)return;demoT+=dt*SPEEDS[speedI];scrollTo(0,yAtDemo(demoT));$('demoBar').style.width=(clamp(demoT/demoTotal())*100)+'%';
  if(demoT>=demoTotal()){demo=false;demoT=0;setDemoUI();setTimeout(()=>$('compare').scrollIntoView({behavior:reduce?'auto':'smooth'}),400)}}
+$('bSpeed').onclick=()=>{speedI=(speedI+1)%SPEEDS.length;setDemoUI()};
 $('bDemo').onclick=()=>demo?pauseDemo():startDemo();
 $('bTop').onclick=()=>{pauseDemo();demoT=0;scrollTo({top:0,behavior:reduce?'auto':'smooth'})};
 $('bEnd').onclick=()=>{pauseDemo();$('compare').scrollIntoView({behavior:reduce?'auto':'smooth'})};
@@ -665,7 +695,7 @@ function drawChrom(spec,prog,vis){
  const d=chrom._d,w=chrom.width,h=chrom.height,ctx=cctx;ctx.clearRect(0,0,w,h);
  const pl=Math.max(20,W*.06)*d,pr=Math.max(20,W*.06)*d,[t0,t1]=spec.range,X=t=>pl+(t-t0)/(t1-t0)*(w-pl-pr);
  const base=h-18*d,amp=h-(W<720?54:40)*d;
- ctx.font=`${10*d}px "IBM Plex Mono", monospace`;
+ ctx.font=`${11*d}px "IBM Plex Mono", monospace`;
  ctx.strokeStyle='rgba(236,237,243,.16)';ctx.lineWidth=d;ctx.beginPath();ctx.moveTo(pl,base+.5);ctx.lineTo(w-pr,base+.5);ctx.stroke();
  ctx.fillStyle='rgba(141,146,166,.9)';ctx.textAlign='center';
  for(let t=Math.ceil(t0);t<=t1;t+=spec.step){ctx.fillText(String(t),X(t),h-3*d)}
@@ -711,7 +741,7 @@ function fader(group){const mats=[];group.traverse(o=>{if(o.material){(Array.isA
 /* Single helical strand along x. Geometry is illustrative. */
 function makeStrand({seq,r=1.6,rise=.62,turn=.62,phase=0,col=0x4cb8a4,phR=.32,baseLen=.75,halo=true,dir=1}){
  const n=seq.length,group=new THREE.Group(),pts=[];
- const phMat=new THREE.MeshStandardMaterial({color:0xc9962f,emissive:0x6b4510,emissiveIntensity:.2,roughness:.32,metalness:.45});
+ const phMat=new THREE.MeshStandardMaterial({color:0xe0b04a,emissive:0x8a5e1a,emissiveIntensity:.32,roughness:.3,metalness:.35});
  const phG=new THREE.SphereGeometry(phR,16,12);
  const phos=[],halos=[];
  for(let i=0;i<n;i++){
@@ -719,7 +749,7 @@ function makeStrand({seq,r=1.6,rise=.62,turn=.62,phase=0,col=0x4cb8a4,phR=.32,ba
   const p=new THREE.Vector3(x,Math.cos(a)*r,Math.sin(a)*r);pts.push(p);
   const m=new THREE.Mesh(phG,phMat);m.position.copy(p);group.add(m);phos.push(m);
   const bc=BASECOL[seq[i]]||0xffffff;
-  const bm=new THREE.MeshStandardMaterial({color:bc,emissive:bc,emissiveIntensity:.08,roughness:.6});
+  const bm=new THREE.MeshStandardMaterial({color:bc,emissive:bc,emissiveIntensity:.16,roughness:.55});
   const inward=new THREE.Vector3(0,-Math.cos(a),-Math.sin(a));
   const cyl=new THREE.Mesh(new THREE.CylinderGeometry(phR*.38,phR*.38,r*baseLen,8),bm);
   cyl.position.copy(p).addScaledVector(inward,r*baseLen/2+phR*.6);
@@ -728,11 +758,11 @@ function makeStrand({seq,r=1.6,rise=.62,turn=.62,phase=0,col=0x4cb8a4,phR=.32,ba
    s.position.copy(p);s.scale.setScalar(phR*6);group.add(s);halos.push(s)}
  }
  const curve=new THREE.CatmullRomCurve3(pts);
- const tube=new THREE.Mesh(new THREE.TubeGeometry(curve,n*8,phR*.28,8,false),new THREE.MeshStandardMaterial({color:col,emissive:col,emissiveIntensity:.25,roughness:.45}));
+ const tube=new THREE.Mesh(new THREE.TubeGeometry(curve,n*8,phR*.28,8,false),new THREE.MeshStandardMaterial({color:col,emissive:col,emissiveIntensity:.35,roughness:.4}));
  group.add(tube);
  const fade=fader(group);
  halos.forEach(s=>s.material.userData.base=1);
- return{group,phos,halos,fade,pts,len:n,phMat,tubeMat:tube.material,setCharge(k,t){halos.forEach((s,i)=>{s.material.opacity=k*(.3+.2*Math.sin(t*3+i*.9))*s.material.userData.o;});phMat.emissiveIntensity=.12+k*.35}};
+ return{group,phos,halos,fade,pts,len:n,phMat,tubeMat:tube.material,setCharge(k,t){halos.forEach((s,i)=>{s.material.opacity=k*(.3+.2*Math.sin(t*3+i*.9))*s.material.userData.o;});phMat.emissiveIntensity=.32+k*.4}};
 }
 
 /* Column: translucent cylinder along x with rings */
@@ -749,13 +779,13 @@ if(GL){
  renderer.setPixelRatio(pr);renderer.setSize(W,H,false);renderer.setClearColor(0x06070c,1);
  scene=new THREE.Scene();scene.fog=new THREE.FogExp2(0x06070c,.012);
  camera=new THREE.PerspectiveCamera(42,W/H,.1,500);camera.position.set(0,2,26);
- scene.add(new THREE.AmbientLight(0x4a5470,.85));
- const dl=new THREE.DirectionalLight(0xe2e8ee,1.0);dl.position.set(6,10,12);scene.add(dl);
- const rim=new THREE.DirectionalLight(0x6a5aa8,.45);rim.position.set(-8,-4,-10);scene.add(rim);
+ scene.add(new THREE.AmbientLight(0x56607c,1.0));
+ const dl=new THREE.DirectionalLight(0xf0ece4,1.25);dl.position.set(6,10,12);scene.add(dl);
+ const rim=new THREE.DirectionalLight(0x7a6ab8,.55);rim.position.set(-8,-4,-10);scene.add(rim);
  if(THREE.EffectComposer&&THREE.UnrealBloomPass&&THREE.RenderPass){
   composer=new THREE.EffectComposer(renderer);composer.setPixelRatio&&composer.setPixelRatio(pr);composer.setSize(W,H);
   composer.addPass(new THREE.RenderPass(scene,camera));
-  composer.addPass(new THREE.UnrealBloomPass(new THREE.Vector2(W,H),.3,.4,.6));
+  composer.addPass(new THREE.UnrealBloomPass(new THREE.Vector2(W,H),.42,.4,.52));
  }
  haloTex=haloTexture();
 
@@ -763,7 +793,7 @@ if(GL){
  const DN=coarse||narrow()?1500:3500,dg=new THREE.BufferGeometry(),dp=new Float32Array(DN*3);
  for(let i=0;i<DN;i++){dp[i*3]=(Math.random()*2-1)*90;dp[i*3+1]=(Math.random()*2-1)*50;dp[i*3+2]=(Math.random()*2-1)*90-10}
  dg.setAttribute('position',new THREE.BufferAttribute(dp,3));
- dust=new THREE.Points(dg,new THREE.PointsMaterial({color:0x8d92a6,size:.12,transparent:true,opacity:.45,depthWrite:false}));scene.add(dust);
+ dust=new THREE.Points(dg,new THREE.PointsMaterial({color:0x8d92a6,size:.18,map:haloTex,transparent:true,opacity:.45,depthWrite:false}));scene.add(dust);
 
  /* main 20-mer */
  main=makeStrand({seq:FLP_SEQ});main.halos.forEach(s=>s.material.userData.o=1);scene.add(main.group);
@@ -797,14 +827,14 @@ if(GL){
  const WN=coarse?900:1800,wg=new THREE.BufferGeometry(),wp=new Float32Array(WN*3);
  for(let i=0;i<WN;i++){const a=Math.random()*6.283,rr=3.55+Math.random()*.55;wp[i*3]=(Math.random()-.5)*hilic.len;wp[i*3+1]=Math.cos(a)*rr;wp[i*3+2]=Math.sin(a)*rr}
  wg.setAttribute('position',new THREE.BufferAttribute(wp,3));
- hilic.water=new THREE.Points(wg,new THREE.PointsMaterial({color:0x6f9fd4,size:.12,opacity:.4,depthWrite:false,blending:THREE.AdditiveBlending}));hilic.group.add(hilic.water);
+ hilic.water=new THREE.Points(wg,new THREE.PointsMaterial({color:0x6f9fd4,size:.18,map:haloTex,opacity:.45,depthWrite:false,blending:THREE.AdditiveBlending}));hilic.group.add(hilic.water);
  HIL.forEach(([n,len,t],i)=>{const s=makeStrand({seq:FLP_SEQ.slice(0,len),r:.6,rise:.24,turn:.7,phR:.15,col:[0x5f88bf,0xb97a89,0x4cb8a4][i],halo:false,phase:i});
   s.group.position.set(0,(i-1)*1.6,0);hilic.group.add(s.group);const mk=new THREE.Object3D();mk.position.x=(len-1)/2*.24+.6;s.group.add(mk);hilic.strands.push({s,t,name:n,mk,lab:tag(`${n} <i>${len}-mer</i>`,'side')})});
  scene.add(hilic.group);hilic.fade=fader(hilic.group);
 }
 
 /* Place a subject in the free area right of the text (wide screens), scaled to fit. ppu = screen px per world unit at the focal plane. */
-let ppu=20;
+let ppu=20,phoneY=innerHeight/2,phoneVis=1;
 function place(group,width){
  if(narrow()){group.position.x=0;group.scale.setScalar(1);return}
  const L=Math.max(20,.06*W)+((H<=520&&W>=560)?Math.min(480,W*.58):Math.min(560,W*.45))+30,R=W-56;
@@ -818,7 +848,7 @@ const CAM=[
 const cPos=GL?new THREE.Vector3():null,cTar=GL?new THREE.Vector3():null,tmpA=GL?new THREE.Vector3():null,tmpB=GL?new THREE.Vector3():null;
 
 /* ---------- resize ---------- */
-function resize(){measure();sizeChrom();if(!GL)return;camera.aspect=W/H;camera.fov=W<H?58:42;camera.updateProjectionMatrix();renderer.setSize(W,H,false);composer&&composer.setSize(W,H)}
+function resize(){measure();sizeChrom();if(demo){const y=scrollY;buildTimeline();demoT=demoAtY(y)}if(!GL)return;camera.aspect=W/H;camera.fov=W<H?58:42;camera.updateProjectionMatrix();renderer.setSize(W,H,false);composer&&composer.setSize(W,H)}
 addEventListener('resize',resize);
 measure();
 
@@ -832,7 +862,8 @@ function frame(now){
  const endFade=1-sstep(tops[N-1]+hs[N-1]-vh*1.0,tops[N-1]+hs[N-1]-vh*.2,sy);
 
  // beats
- beats.forEach((bs,k)=>bs.forEach(b=>{let o=0;if(k===i){o=sstep(b.a,b.a+.05,lp)*(1-sstep(b.b-.05,b.b,lp));if(b.a===0)o=1-sstep(b.b-.08,b.b,lp)}b.el.style.opacity=o.toFixed(3);b.el.style.visibility=o<.02?'hidden':'visible'}));
+ beats.forEach((bs,k)=>bs.forEach(b=>{let o=0;if(k===i){o=b.a===0?1:sstep(b.a,b.a+.05,lp);if(b.b<.95)o*=1-sstep(b.b-.05,b.b,lp)}
+  if(demo&&k===i&&o>.5){const pn=b.pn||(b.pn=b.el.querySelector('.panel')||0);if(pn&&pn.scrollHeight>pn.clientHeight+4){const v0=b.a===0?0:b.a+.05,v1=b.b>=.95?1:b.b-.05;pn.scrollTop=(pn.scrollHeight-pn.clientHeight)*sstep(.15,.85,clamp((lp-v0)/(v1-v0)))}}b.el.style.opacity=o.toFixed(3);b.el.style.visibility=o<.02?'hidden':'visible'}));
  const ci=(sy>tops[N-1]+hs[N-1]-vh*.4)?N:i;
  if(ci!==lastChapter){lastChapter=ci;$('hIdx').textContent=String(ci).padStart(2,'0');$('hName').textContent=ci===N?'Side by side':secs[ci].dataset.name;if(ci<N)$('hRead').innerHTML=secs[ci].dataset.read;renderQ()}
  $('rail').style.height=(clamp(sy/Math.max(1,tops[N-1]+hs[N-1]-vh))*100)+'%';
@@ -847,14 +878,20 @@ function frame(now){
           i===7?{s:SPEC[7],p:sstep(.12,.5,lp),v:sstep(.08,.14,lp)*(1-sstep(.95,1,lp))}:{s:null,p:0,v:0};
  let panelUp=false;if(cs.v>.01){const ct=H-chrom.clientHeight-parseFloat(getComputedStyle(chrom).bottom);panelUp=beats[i].some(b=>+b.el.style.opacity>.05&&b.el.getBoundingClientRect().bottom>ct+6)}
  drawChrom(cs.s,cs.p,cs.v*endFade*(panelUp?0:1));
+ if(narrow()){let top=64,bot=H-112;if(cs.v>.01&&!panelUp)bot=Math.min(bot,chrom.getBoundingClientRect().top);
+  let ut=Infinity,ub=-Infinity;beats[i].forEach(b=>{if(+b.el.style.opacity>.05){const r=b.el.getBoundingClientRect();ut=Math.min(ut,r.top);ub=Math.max(ub,r.bottom)}});
+  let c=(top+bot)/2,gap=bot-top;if(ut<ub){const g1=ut-top,g2=bot-ub;c=g1>g2?top+g1/2:ub+g2/2;gap=Math.max(g1,g2)}
+  const kp=reduce?1:1-Math.exp(-dt*4);phoneY=lerp(phoneY,c,kp);phoneVis=lerp(phoneVis,clamp((gap-90)/110,.22,1),kp)}else phoneVis=1;
 
  if(GL){
   // visibility weights by global progress
-  const wMain=1-sstep(3.8,4.15,gp);
-  const wCol=sstep(3.75,4.15,gp)*(1-sstep(5.8,6.1,gp));
-  const wDup=sstep(5.8,6.15,gp)*(1-sstep(6.85,7.1,gp));
-  const wHil=sstep(6.85,7.15,gp);
-  main.fade(wMain*endFade);column.fade(wCol*endFade);duplex.fade(wDup*endFade);hilic.fade(wHil*endFade);
+  // scene changes hand off in sequence: the old subject fades out at the end of its chapter,
+  // the stage is empty while the page scrolls to the next chapter, then the new subject fades in
+  const wMain=1-sstep(3.86,3.97,gp);
+  const wCol=sstep(4,4.08,gp)*(1-sstep(5.86,5.97,gp));
+  const wDup=sstep(6,6.08,gp)*(1-sstep(6.86,6.97,gp));
+  const wHil=sstep(7,7.08,gp);
+  const pv=phoneVis;main.fade(wMain*endFade*pv);column.fade(wCol*endFade*pv);duplex.fade(wDup*endFade*pv);hilic.fade(wHil*endFade*pv);
   dust.material.opacity=.45*endFade;
 
   // main strand behaviour
@@ -862,12 +899,12 @@ function frame(now){
   main.group.rotation.x=time*.25;
   main.group.rotation.y=Math.sin(time*.15)*.15+(i<=1?(1-lp)*.2:0);
   const chargeK=i===2?sstep(.05,.3,lp)*(.4+chargeLevel*.6):(i===3?.35:0);
-  main.halos.forEach(s=>s.material.userData.o=wMain);
+  main.halos.forEach(s=>s.material.userData.o=wMain*pv);
   main.setCharge(chargeK,time);
   // adducts
   let af=0;if(i===3)af=lp<.3?sstep(.05,.25,lp)*.62:adductFrac();
-  adducts.fade((i===3?1:0)*wMain*endFade);
-  adducts.items.forEach((a,k)=>{const on=a.thr<af*1.6;const tgt=on?0:1;a.off=lerp(a.off??1,tgt,.08);
+  adducts.fade((i===3?1:0)*wMain*endFade*pv);
+  adducts.items.forEach((a,k)=>{const on=a.thr<af*1.6;const tgt=on?0:1;a.off=lerp(a.off??1,tgt,1-Math.exp(-dt*5));
    const orbit=.75+.15*Math.sin(time*2+a.ph);
    a.m.position.set(a.p.x+Math.cos(time*1.5+a.ph+a.k*3.14)*orbit*.6,a.p.y*1.32+Math.sin(time+a.ph)*.15,a.p.z*1.32+Math.sin(time*1.5+a.ph+a.k*3.14)*orbit*.6).addScaledVector(a.drift,a.off);
    a.m.scale.setScalar(Math.max(.001,1-a.off))});
@@ -895,11 +932,12 @@ function frame(now){
   else hilic.strands.forEach(c=>c.lab.show=0);
 
   // camera
-  const k0=CAM[i],k1=CAM[Math.min(N-1,i+1)],t=sstep(.82,1,lp);
+  const k0=CAM[i],k1=CAM[Math.min(N-1,i+1)],t=(i===3||i===5||i===6)?sstep(.97,1,lp):sstep(.82,1,lp);
   tmpA.set(...k0[0]).lerp(tmpB.set(...k1[0]),t);cPos.lerp(tmpA,reduce?1:1-Math.exp(-dt*5));
   tmpA.set(...k0[1]).lerp(tmpB.set(...k1[1]),t);cTar.lerp(tmpA,reduce?1:1-Math.exp(-dt*5));
   const nm=narrow()?1.35:Math.max(1,1.6/(W/H));camera.position.set(cPos.x*nm,cPos.y,cPos.z*nm);
-  camera.lookAt(cTar.x,cTar.y-(narrow()?3:0),cTar.z);
+  ppu=H/(2*camera.position.distanceTo(cTar)*Math.tan(camera.fov*Math.PI/360));
+  camera.lookAt(cTar.x,cTar.y+(narrow()?(phoneY-H/2)/ppu:0),cTar.z);
   camera.updateMatrixWorld();
   ppu=H/(2*camera.position.distanceTo(cTar)*Math.tan(camera.fov*Math.PI/360));
 
@@ -916,6 +954,8 @@ function frame(now){
 }
 if(GL){cPos.set(...CAM[0][0]);cTar.set(...CAM[0][1])}
 resize();
+buildTimeline();
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{if(!demo)buildTimeline()});
 requestAnimationFrame(frame);
 })();
 </script>
